@@ -1,29 +1,29 @@
 from selenium.webdriver.common.by import By
 
 class OrderPageLocators:
-    scooter_logo = [By.XPATH, "//a[@class='Header_LogoScooter__3lsAR']"]
-    yandex_logo = [By.XPATH, "//a[@class='Header_LogoYandex__3TSOI']"]
-    order_page = [By.XPATH, "//div[@class='Order_Header__BZXOb']"]
-    header_order_button = [By.XPATH, "//div[@class='Header_Nav__AGCXC']/button[@class='Button_Button__ra12g']"]
-    footer_order_button = [By.XPATH, "//button[@class='Button_Button__ra12g Button_Middle__1CSJM']"]
-    name_field = [By.XPATH, "//div[text()='Введите корректное имя']/preceding-sibling::input"]
-    second_name_field = [By.XPATH, "//div[text()='Введите корректную фамилию']/preceding-sibling::input"]
-    address_field = [By.XPATH, "//div[text()='Введите корректный адрес']/preceding-sibling::input"]
-    select_metro_field = [By.XPATH, "//input[@class='select-search__input']"]
-    phone_field = [By.XPATH, "//div[text()='Введите корректный номер']/preceding-sibling::input"]
+    scooter_logo = [By.XPATH, ".//*[@alt='Scooter']"] # Логотип самоката
+    yandex_logo = [By.XPATH, ".//*[@alt='Yandex']"] # Логотип яндекса
+    order_page = [By.XPATH, "//div[starts-with(@class, 'Order_Header')]"] # Страница заказа
+    header_order_button = [By.XPATH, "//div[starts-with(@class,'Header_Nav')]/button[1]"] # Кнопка "Заказать" на шапке сайта
+    footer_order_button = [By.XPATH, "//button[contains(@class, 'Button_Middle') and text()='Заказать']"] # Кнопка Заказать внизу главной страницы
+    name_field = [By.XPATH, ".//input[@placeholder='* Имя']"] # Поле Имя
+    second_name_field = [By.XPATH, ".//input[@placeholder='* Фамилия']"] # Поле Фамилия
+    address_field = [By.XPATH, ".//input[@placeholder='* Адрес: куда привезти заказ']"] # Поле Адрес
+    select_metro_field = [By.XPATH, ".//input[@placeholder='* Станция метро']"] # Поле выбора станции метро
+    phone_field = [By.XPATH, ".//input[@placeholder='* Телефон: на него позвонит курьер']"] # Поле ввода телефона
 
-    cookie_button = [By.XPATH, "//button[@class='App_CookieButton__3cvqF']"]
-    next_button = [By.XPATH, "//div[@class='Order_NextButton__1_rCA']/button"]
+    cookie_button = [By.XPATH, ".//button[starts-with(@class,'App_CookieButton') and text()='да все привыкли']"] # Кнопка куки
+    next_button = [By.XPATH, "//button[contains(@class, 'Button_Middle') and text()='Далее']"] # Кнопка далее
 
-    date_field = [By.XPATH, "//div[@class='react-datepicker__input-container']/input"]
-    dropdown_input = [By.XPATH, "//div[@class='Dropdown-control']"]
-    dropdown_items = [By.XPATH, "//div[@class='Dropdown-option']"]
+    date_field = [By.XPATH, ".//input[@placeholder='* Когда привезти самокат']"] # Поле ввода даты
+    dropdown_input = [By.XPATH, "//div[text()='* Срок аренды']"] # Поле выбора срока аренды
+    dropdown_items = [By.XPATH, "//div[@role='option']"] # Сроки аренды
 
-    scooter_colors = [By.XPATH, "//label[@class='Checkbox_Label__3wxSf']"]
-    comment_field = [By.XPATH, "//input[@class='Input_Input__1iN_Z Input_Responsible__1jDKN']"]
+    scooter_colors = [By.XPATH, "//label[starts-with(@class,'Checkbox_Label')]"] # Цвета самоката
+    comment_field = [By.XPATH, "//input[@placeholder='Комментарий для курьера']"] # Поле Комментарий
 
-    order_button = [By.XPATH, "//button[@class='Button_Button__ra12g Button_Middle__1CSJM']"]
-    confirm_modal = [By.XPATH, "//div[starts-with(text(), 'Хотите')]"]
-    confirm_button = [By.XPATH, "//button[@class='Button_Button__ra12g Button_Middle__1CSJM' and text()='Да']"]
-    order_success_title = [By.XPATH, "//div[starts-with(text(), 'Заказ')]"]
-    order_success_modal = [By.XPATH, "//div[contains(text(), 'Номер заказа')]"]
+    order_button = [By.XPATH, "//div[starts-with(@class,'Order_Buttons')]/button[text()='Заказать']"] # Кнопка Заказать 
+    confirm_modal = [By.XPATH, "//div[starts-with(text(), 'Хотите')]"] # Окно подтверждения заказа
+    confirm_button = [By.XPATH, "//button[text()='Да']"] # Кнопка подтверждения
+    order_success_title = [By.XPATH, "//div[starts-with(text(), 'Заказ')]"] # Окно успешно созданного заказа
+    order_success_modal = [By.XPATH, "//div[contains(text(), 'Номер заказа')]"] # Текст НОмер заказа

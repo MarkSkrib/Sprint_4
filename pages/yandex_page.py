@@ -1,11 +1,8 @@
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
+from locators.base_page_locators import BaseLocators
+from pages.base_page import BasePage
 import allure
 
-class PageYandex:
-
-    yandex_search_page = [By.XPATH, "//iframe[@class='dzen-search-arrow-common__frame']"]
+class PageYandex(BasePage):
 
     def __init__(self, driver):
         self.driver = driver
@@ -16,8 +13,9 @@ class PageYandex:
 
     @allure.step("Ждём, пока главная страница Дзен(Яндекс) прогрузится")
     def wait_yandex_page_loaded(self):
-        WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located((self.yandex_search_page)))
-
+        self.wait_element(BaseLocators.YANDEX_SEARCH_BLOCK)
+        
     @allure.step("Получаем название поля поиска")
     def get_yandex_search_label(self):
-        return self.driver.find_element(*self.yandex_search_page).get_attribute("aria-label")
+        return self.driver.find_element(*BaseLocators.YANDEX_SEARCH_BLOCK).get_attribute("aria-label")
+        
